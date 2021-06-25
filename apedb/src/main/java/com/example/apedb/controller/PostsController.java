@@ -12,43 +12,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.apedb.model.Quotes;
-import com.example.apedb.service.QuotesService;
+import com.example.apedb.model.Posts;
+import com.example.apedb.service.PostsService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/quotes")
-public class QuotesController {
+@RequestMapping("/posts")
+public class PostsController {
 	@Autowired
-	QuotesService quotesservice;
+	PostsService postsservice;
 	
-	// get all items
 	@GetMapping
-	public Iterable<Quotes> getItems(){
-		return quotesservice.getItems();
+	public Iterable<Posts> getItems(){
+		return postsservice.getItems();
 	}
 	
-	// create item
 	@PostMapping
-	public Quotes createItem(@RequestBody Quotes item) {
-		return quotesservice.createItem(item);
+	public Posts createItem(@RequestBody Posts item) {
+		return postsservice.createItem(item);
 	}
 	
-	// get item by id
 	@GetMapping("/{id}")
-	public Quotes getItemById(@PathVariable Long id) {
-		return quotesservice.getItemByID(id);
+	public Posts getItemById(@PathVariable Long id) {
+		return postsservice.getItemById(id);
 	}
 	
-	// update items
 	@PatchMapping
-	public Quotes updateItem(@RequestBody Quotes item) {
-		return quotesservice.updateItems(item);
+	public Posts updateItem(@RequestBody Posts item) {
+		return postsservice.updateItems(item);
 	}
 	
-	// delete items
 	@DeleteMapping("/{id}")
 	public HttpStatus deleteItem(@PathVariable Long id) {
-		return quotesservice.deleteItem(id);
+		return postsservice.deleteItem(id);
 	}
 }
