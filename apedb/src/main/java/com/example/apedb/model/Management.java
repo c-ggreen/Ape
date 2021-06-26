@@ -15,7 +15,11 @@ public class Management {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 	@Column
+	private String title;
+	@Column
 	private String post;
+	@Column
+	private String source;
 	
 	public Management() {
 		
@@ -35,6 +39,22 @@ public class Management {
 
 	public void setPost(String post) {
 		this.post = post;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
 	}
 	
 }
