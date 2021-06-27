@@ -8,7 +8,7 @@ function Stocks() {
   const [stock, setStock] = useState([]);
 
   // The function responsible for getting the stock data from the API
-  // WARNING: THIS FUNCTION MAKES AN API CALL WITH EACH RENDER, BE CAREFUL NOT TO RE-RENDER THE PAGE MULTIPLE TIMES WITHIN AS THE MONTHLY REQUEST LIMIT IS 500.
+  // WARNING: THIS FUNCTION MAKES AN API CALL WITH EACH RENDER, BE CAREFUL NOT TO RE-RENDER THE PAGE MULTIPLE TIMES AS THE MONTHLY REQUEST LIMIT IS 500.
   const getData = () => {
     const options = {
       method: "GET",

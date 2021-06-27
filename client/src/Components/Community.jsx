@@ -79,7 +79,14 @@ function Community() {
 
       {postItems.map((item, i) => {
         return (
-          <Post key={i} topic={item.topic} name={item.name} post={item.post} />
+          <Post
+            key={i}
+            id={item.id}
+            topic={item.topic}
+            name={item.name}
+            post={item.post}
+            getPosts={getPosts}
+          />
         );
       })}
     </div>
