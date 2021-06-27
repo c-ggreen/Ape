@@ -3,21 +3,19 @@ import { Card } from "react-bootstrap";
 function StockCard(props) {
   return (
     <div>
-      <Card>
-        <Card.Header>$tock Ticker</Card.Header>
+      <Card bg="dark" text="light">
+        <Card.Header className="text-warning">
+          {props.name}
+          <Card.Text className="text-muted">${props.symbol}</Card.Text>
+        </Card.Header>
         <Card.Body>
-          <Card.Title>Current Price: {props.current}</Card.Title>
-          <Card.Text>Low Price: {props.low}</Card.Text>
-          <Card.Text>High Price: {props.high}</Card.Text>
-          <Card.Text>Open Price: {props.open}</Card.Text>
+          <Card.Title>Current Price: ${props.current}</Card.Title>
+          <Card.Text>Low: {props.low}</Card.Text>
+          <Card.Text>High: {props.high}</Card.Text>
+          <Card.Text>Open: {props.open}</Card.Text>
         </Card.Body>
       </Card>
-
-      {/* <h1>--------------</h1>
-      <h1>{props.current}</h1>
-      <h1>{props.low}</h1>
-      <h1>{props.high}</h1>
-      <h1>{props.open}</h1> */}
+      <br />
     </div>
   );
 }
