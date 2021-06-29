@@ -5,11 +5,9 @@ import ManagementService from "../Services/ManagementService";
 
 function Homepage() {
   const [post, setPost] = useState([]);
-  const [postNum, setPostNum] = useState();
   const getData = (x) => {
     ManagementService.getManagement().then((res) => {
       setPost(res.data);
-      setPostNum(x);
       console.log(res.data);
     });
   };
