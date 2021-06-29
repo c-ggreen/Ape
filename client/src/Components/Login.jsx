@@ -21,11 +21,19 @@ function Login() {
 
   return (
     <div className="containerAll">
+      <video
+        className="login-page-video"
+        src="https://storage.coverr.co/videos/pETJpDPt2ubeUb2gubslF1JkLyadHLYq?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjI0OTM2ODI0fQ.2u5YxV7IWcjgvGvWAtHq7X53ZrYz2u9H_uR2HLX1wgg"
+        autoPlay
+        loop
+        muted
+      />
+
       <Col
         xs={6}
         className="d-flex flex-column justify-content-center align-items-center"
       >
-        <h1 className="h1 mb-3 font-size-normal">APE</h1>
+        <h1 className="h1 mb-3 font-size-normal text-white">APE</h1>
         <Link to="/home">
           <Button variant="warning" type="submit">
             Enter
