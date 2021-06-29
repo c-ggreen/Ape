@@ -5,17 +5,17 @@
     align-items: center;
     justify-content: center;
 } */
-.quotes{
-    color: #FDE74C;
-} 
+.quotes {
+  color: #fde74c;
+}
 
-.containerAll{
-    /* border: 1px solid red; */
-    background-color: black;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.containerAll {
+  /* border: 1px solid red; */
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

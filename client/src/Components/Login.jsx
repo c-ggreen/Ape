@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Button} from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import QuoteService from "../Services/QuoteService";
 
@@ -24,10 +24,12 @@ function Login() {
       <Container>
         <Row>
           <Col xs={4}>
-              <h1 className="h3 mb-3 font-size-normal">APE</h1>
-              <Link to="/home">
-                <Button variant="warning" type="submit">Enter</Button>
-              </Link>
+            <h1 className="h3 mb-3 font-size-normal">APE</h1>
+            <Link to="/home">
+              <Button variant="warning" type="submit">
+                Enter
+              </Button>
+            </Link>
           </Col>
 
           <Col xs={8}>
