@@ -96,6 +96,7 @@ function Crypto() {
       </Container>
 
       {/* All of the .map's for each of the currency arrays */}
+      {/* Note: I used .toFixed to limit the current price of each coin to 2 decimal places */}
       {btc.map((item, i) => {
         return (
           <Container>

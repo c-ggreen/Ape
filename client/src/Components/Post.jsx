@@ -126,7 +126,7 @@ function Post(props) {
           </Card.Footer>
         </Card>
         {replies.map((item, i) => {
-          <Reply key={i} name={item.name} post={item.post} />;
+          return <Reply key={i} name={item.name} post={item.post} />;
         })}
       </Container>
       <br />
