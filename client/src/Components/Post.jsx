@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Container, Button, Modal, Form } from "react-bootstrap";
 import PostService from "../Services/PostService";
+import Reply from "./Reply";
+import ReplyService from "../Services/ReplyService";
 
 function Post(props) {
   // For the "Edit" modal.
@@ -51,6 +53,42 @@ function Post(props) {
       handleClose();
     });
   };
+
+  // THE REPLY VARIABLES AND METHODS
+  const [replyName, setReplyName] = useState("");
+  const [replyPost, setReplyPost] = useState("");
+  const [replies, setReplies] = useState([]);
+
+  // For the "Reply" modal.
+  const [replyShow, setReplyShow] = useState(false);
+  const handleReplyClose = () => setReplyShow(false);
+  const handleReplyShow = () => setReplyShow(true);
+
+  const handleReplyName = (e) => {
+    setReplyName(e.target.value);
+  };
+  const handleReplyPost = (e) => {
+    setReplyPost(e.target.value);
+  };
+  const getReplies = () => {
+    ReplyService.getReply().then((res) => {
+      setReplies(res.data);
+      console.log(res.data);
+    });
+  };
+  const submitReply = () => {
+    ReplyService.postReply({
+      name: replyName,
+      post: replyPost,
+    }).then((res) => {
+      console.log(res.data);
+      getReplies();
+      handleReplyClose();
+    });
+  };
+  useEffect(() => {
+    getReplies();
+  }, []);
   return (
     <div>
       <br />
@@ -78,11 +116,22 @@ function Post(props) {
             >
               Edit
             </Button>
+            <Button
+              onClick={() => handleReplyShow()}
+              variant="secondary"
+              style={{ width: "10%" }}
+            >
+              Reply
+            </Button>
           </Card.Footer>
         </Card>
+        {replies.map((item, i) => {
+          <Reply key={i} name={item.name} post={item.post} />;
+        })}
       </Container>
       <br />
 
+      {/* EDIT MODAL */}
       <Modal
         show={show}
         onHide={handleClose}
@@ -130,6 +179,41 @@ function Post(props) {
           </Button>
           <Button variant="warning" onClick={() => editPost()}>
             Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* REPLY MODAL */}
+      <Modal
+        show={replyShow}
+        onHide={handleReplyClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Reply to Post</Modal.Title>
+        </Modal.Header>
+        <Container>
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Name</Form.Label>
+              <Form.Control type="text" onChange={handleReplyName} />
+            </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Reply</Form.Label>
+              <Form.Control as="textarea" rows={3} onChange={handleReplyPost} />
+            </Form.Group>
+          </Form>
+        </Container>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleReplyClose}>
+            Close
+          </Button>
+          <Button variant="warning" onClick={() => submitReply()}>
+            Save Reply
           </Button>
         </Modal.Footer>
       </Modal>
