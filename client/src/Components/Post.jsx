@@ -106,6 +106,7 @@ function Post(props) {
               onClick={() => deletePost(props.id)}
               variant="danger"
               style={{ width: "10%" }}
+              className="mr-2"
             >
               Delete
             </Button>
@@ -113,6 +114,7 @@ function Post(props) {
               onClick={() => handleShow()}
               variant="secondary"
               style={{ width: "10%" }}
+              className="mr-2"
             >
               Edit
             </Button>

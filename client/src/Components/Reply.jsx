@@ -4,7 +4,7 @@ import { Card, Container, Button } from "react-bootstrap";
 function Reply(props) {
   return (
     <div>
-      <Container>
+      <Container className="mt-1">
         <Card bg="dark" text="light" style={{ width: "75%" }}>
           <Card.Body>
             <blockquote className="blockquote mb-0">
@@ -13,12 +13,12 @@ function Reply(props) {
             </blockquote>
           </Card.Body>
           <Card.Footer>
-            <Button variant="danger" style={{ width: "10%" }}>
+            {/* <Button variant="danger" style={{ width: "10%" }}>
               Delete
             </Button>
             <Button variant="secondary" style={{ width: "10%" }}>
               Edit
-            </Button>
+            </Button> */}
           </Card.Footer>
         </Card>
       </Container>
