@@ -56,21 +56,21 @@ function Homepage() {
       <Container className="mt-2 d-flex flex-column justify-content-center align-items-center">
         <h3>What We Offer</h3>
         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-          <Tab eventKey="home" title="Community">
+          <Tab eventKey="home" title="Community" tabClassName="text-dark">
             <p>
               Our Community page houses the forum submissions from our users.
               There you can find conversations about any topic an APE can think
               of
             </p>
           </Tab>
-          <Tab eventKey="profile" title="Stocks">
+          <Tab eventKey="profile" title="Stocks" tabClassName="text-dark">
             <p>
               Our Stock page tracks all the stocks that matter to an APE. In our
               opinion, they are the stocks that should only matter at all,
               everything else is fluff for the suits to play with.
             </p>
           </Tab>
-          <Tab eventKey="contact" title="Crypto">
+          <Tab eventKey="contact" title="Crypto" tabClassName="text-dark">
             <p>
               Our Crypto page tracks the currencies that matter. All hail lord
               Elon.

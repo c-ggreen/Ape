@@ -23,7 +23,7 @@ function Login() {
     <div className="containerAll">
       <video
         className="login-page-video"
-        src="https://storage.coverr.co/videos/pETJpDPt2ubeUb2gubslF1JkLyadHLYq?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjI0OTM2ODI0fQ.2u5YxV7IWcjgvGvWAtHq7X53ZrYz2u9H_uR2HLX1wgg"
+        src="https://storage.coverr.co/videos/sXrS02OxltUBR5LU3nGiJ9pyLmgZEVmMl?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjI1MDY5MTkxfQ.iF4NrBQXH6e63iNuLdSHmHpGAQ-DotXLqzxuxqUNGuk"
         autoPlay
         loop
         muted
