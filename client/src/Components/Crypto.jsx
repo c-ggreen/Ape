@@ -81,11 +81,11 @@ function Crypto() {
   // Calling each currency GET request in useEffect so they execute on page render
   // Note: GET requests for the API are EXTREMELY limited, so only make calls when necessary.
   useEffect(() => {
-    // handleBTC();
-    // handleETH();
-    // handleADA();
-    // handleXRP();
-    // handleDOGE();
+    handleBTC();
+    handleETH();
+    handleADA();
+    handleXRP();
+    handleDOGE();
   }, []);
 
   return (

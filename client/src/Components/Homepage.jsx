@@ -66,7 +66,7 @@ function Homepage() {
           <Tab eventKey="profile" title="Stocks" tabClassName="text-dark">
             <p>
               Our Stock page tracks all the stocks that matter to an APE. In our
-              opinion, they are the stocks that should only matter at all,
+              opinion, these are the only stocks that should matter at all,
               everything else is fluff for the suits to play with.
             </p>
           </Tab>
