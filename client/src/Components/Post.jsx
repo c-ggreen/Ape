@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useCallback } from "react";
 import { Card, Container, Button, Modal, Form } from "react-bootstrap";
 import PostService from "../Services/PostService";
 import Reply from "./Reply";
@@ -14,6 +14,10 @@ function Post(props) {
   const [newTopic, setNewTopic] = useState("");
   const [newName, setNewName] = useState("");
   const [newPost, setNewPost] = useState("");
+
+  const [currentTopic, setCurrentTopic] = useState("");
+  const [currentName, setCurrentName] = useState("");
+  const [currentPost, setCurrentPost] = useState("");
 
   // Handles the new input for Topic
   const handleNewTopic = (e) => {
@@ -70,25 +74,37 @@ function Post(props) {
   const handleReplyPost = (e) => {
     setReplyPost(e.target.value);
   };
-  const getReplies = () => {
-    ReplyService.getReply().then((res) => {
-      setReplies(res.data);
-      console.log(res.data);
-    });
+  const handleReplies = () => {
+    setReplies(props.replies);
+  };
+  const setCurrent = () => {
+    setCurrentTopic(props.topic);
+    setCurrentName(props.name);
+    setCurrentPost(props.post);
   };
   const submitReply = () => {
-    ReplyService.postReply({
-      name: replyName,
-      post: replyPost,
+    PostService.patchPost({
+      id: props.id,
+      topic: currentTopic,
+      name: currentName,
+      post: currentPost,
+      postsReplies: [
+        ...replies,
+        {
+          post: replyPost,
+          name: replyName,
+        },
+      ],
     }).then((res) => {
       console.log(res.data);
-      getReplies();
+      props.getPosts();
+      handleReplies();
       handleReplyClose();
     });
   };
   useEffect(() => {
-    getReplies();
-  }, []);
+    handleReplies();
+  }, [handleReplies]);
   return (
     <div>
       <br />
@@ -119,7 +135,10 @@ function Post(props) {
               Edit
             </Button>
             <Button
-              onClick={() => handleReplyShow()}
+              onClick={() => {
+                handleReplyShow();
+                setCurrent();
+              }}
               variant="secondary"
               style={{ width: "10%" }}
             >
@@ -127,7 +146,7 @@ function Post(props) {
             </Button>
           </Card.Footer>
         </Card>
-        {replies.map((item, i) => {
+        {props.replies?.map((item, i) => {
           return <Reply key={i} name={item.name} post={item.post} />;
         })}
       </Container>
@@ -149,7 +168,7 @@ function Post(props) {
               <Form.Label>Topic</Form.Label>
               <Form.Control
                 type="text"
-                placeholder={props.topic}
+                defaultValue={props.topic}
                 onChange={handleNewTopic}
               />
             </Form.Group>
@@ -157,7 +176,7 @@ function Post(props) {
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder={props.name}
+                defaultValue={props.name}
                 onChange={handleNewName}
               />
             </Form.Group>
@@ -168,7 +187,7 @@ function Post(props) {
               <Form.Label>Make a post</Form.Label>
               <Form.Control
                 as="textarea"
-                placeholder={props.post}
+                defaultValue={props.post}
                 rows={3}
                 onChange={handleNewPost}
               />

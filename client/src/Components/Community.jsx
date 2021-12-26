@@ -85,6 +85,7 @@ function Community() {
             topic={item.topic}
             name={item.name}
             post={item.post}
+            replies={item.postsReplies}
             getPosts={getPosts}
           />
         );
